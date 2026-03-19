@@ -42,10 +42,10 @@
 
     container.innerHTML = [
       '<div class="premium-team-shell">',
-      '<div class="premium-team-head reveal-copy reveal-variant-soft" style="--stagger-index:1;">',
+      '<div class="premium-team-grid">',
+      '<div class="premium-team-title reveal-copy reveal-variant-soft" style="--stagger-index:1;">',
       '<h2 class="font-display">CONOCE A NUESTRO EQUIPO</h2>',
       "</div>",
-      '<div class="premium-team-grid">',
       members.map(function (member, index) {
         return [
           '<article class="premium-team-member reveal-item reveal-variant-zoom" style="--stagger-index:' + String(index) + ';">',
