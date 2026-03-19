@@ -1,28 +1,31 @@
 (function () {
   var buildQueued = false;
-
-  function getTeamMembers(section) {
-    return Array.from(section.querySelectorAll(".group")).map(function (card) {
-      var image = card.querySelector("img");
-      var name = card.querySelector("h3");
-      var info = card.querySelectorAll(".p-6 p");
-
-      if (!image || !name || info.length < 4) {
-        return null;
-      }
-
-      return {
-        image: image.src,
-        alt: image.alt || name.textContent.trim(),
-        position: image.style.objectPosition || "50% 20%",
-        name: name.textContent.trim(),
-        role: info[0].textContent.trim(),
-        specialty: info[1].textContent.trim(),
-        bio: info[2].textContent.replace(/^"|"$/g, "").trim(),
-        meta: info[3].textContent.trim()
-      };
-    }).filter(Boolean);
-  }
+  var members = [
+    {
+      name: "Marcos Jurado",
+      role: "Fuerza y Rendimiento",
+      description: "Potencia, técnica y resistencia para que rindas al máximo sin lesionarte.",
+      image: "/assets/team-premium/marcus-johnson-portrait.jpg",
+      alt: "Marcos Jurado, especialista en fuerza y rendimiento en Impulso Gym",
+      position: "50% 18%"
+    },
+    {
+      name: "Sara Villanueva",
+      role: "Pilates y Yoga",
+      description: "Control, movilidad y equilibrio. Te enseñará a reconectar con tu cuerpo.",
+      image: "/assets/team-premium/sarah-williams-portrait.jpg",
+      alt: "Sara Villanueva, especialista en pilates y yoga en Impulso Gym",
+      position: "50% 20%"
+    },
+    {
+      name: "David Pardo",
+      role: "Fitness y Musculación",
+      description: "Constancia, motivación y progreso real. Si crees que no puedes más, él te demostrará que sí.",
+      image: "/assets/team-premium/david-park-portrait.jpg",
+      alt: "David Pardo, especialista en fitness y musculación en Impulso Gym",
+      position: "50% 18%"
+    }
+  ];
 
   function buildTeamSection() {
     var section = document.getElementById("trainers");
@@ -31,11 +34,7 @@
     }
 
     var container = section.querySelector(".container");
-    var heading = container ? container.querySelector("h2") : null;
-    var intro = container ? container.querySelector("p") : null;
-    var members = container ? getTeamMembers(container) : [];
-
-    if (!container || !heading || !intro || members.length === 0) {
+    if (!container) {
       return;
     }
 
@@ -43,22 +42,21 @@
 
     container.innerHTML = [
       '<div class="premium-team-shell">',
-      '<div class="premium-team-head reveal-copy">',
-      '<span class="premium-team-kicker">Equipo de entrenadores personales en Madrid</span>',
-      heading.outerHTML,
-      intro.outerHTML,
+      '<div class="premium-team-head reveal-copy reveal-variant-soft" style="--stagger-index:1;">',
+      '<h2 class="font-display">CONOCE A NUESTRO EQUIPO</h2>',
+      "<p>Profesionales apasionados en Madrid que no solo cuentan repeticiones, sino que te enseñan a entrenar.</p>",
       "</div>",
       '<div class="premium-team-grid">',
-      members.map(function (member) {
-        var subtleDescription = member.specialty + ". " + member.bio;
+      members.map(function (member, index) {
         return [
-          '<article class="premium-team-member reveal-item">',
+          '<article class="premium-team-member reveal-item reveal-variant-zoom" style="--stagger-index:' + String(index) + ';">',
           '<div class="premium-team-visual">',
           '<img src="' + member.image + '" alt="' + member.alt + '" loading="lazy" decoding="async" style="object-position:' + member.position + ';">',
           "</div>",
           '<div class="premium-team-copy">',
           "<h3>" + member.name + "</h3>",
-          '<p class="premium-team-description">' + subtleDescription + "</p>",
+          '<p class="premium-team-role">' + member.role + "</p>",
+          '<p class="premium-team-description">' + member.description + "</p>",
           "</div>",
           "</article>"
         ].join("");
@@ -87,11 +85,9 @@
     queueBuild();
   }
 
-  var observer = new MutationObserver(function () {
+  new MutationObserver(function () {
     queueBuild();
-  });
-
-  observer.observe(document.documentElement, {
+  }).observe(document.documentElement, {
     childList: true,
     subtree: true
   });

@@ -2,28 +2,28 @@
   var buildQueued = false;
   var faqItems = [
     {
-      question: "¿No tengo suficiente tiempo para entrenar, esto es para mí?",
-      answer: "Sí. Nuestros entrenamientos se adaptan a agendas ocupadas, con sesiones de 30 a 60 minutos y una planificación personalizada para que avances incluso cuando vas justo de tiempo."
+      question: "¿Y si tengo muy poco tiempo para entrenar, merece la pena?",
+      answer: "Sí. Cuando el tiempo va justo es cuando más sentido tiene entrenar con cabeza. Organizamos sesiones de 30 a 60 minutos para que avances de verdad sin complicarte la agenda."
     },
     {
-      question: "¿Qué pasa si no estoy en buena forma física o nunca he entrenado?",
-      answer: "No pasa nada. Ajustamos cada plan a tu punto de partida y te guiamos paso a paso para que mejores con seguridad, confianza y sin sentirte perdido."
+      question: "Nunca he pisado un gimnasio y mi forma física es baja, ¿encajaré aquí?",
+      answer: "Claro. No esperamos que llegues en forma, estamos para ayudarte a construirla. Adaptamos todo a tu nivel para que empieces con seguridad y sin sentirte fuera de lugar."
     },
     {
-      question: "¿Es muy caro entrenar aquí?",
-      answer: "Trabajamos con planes flexibles para distintos presupuestos. Más que un gasto, buscamos que lo vivas como una inversión real en tu salud, tu energía y tu bienestar a largo plazo."
+      question: "¿Es una opción asequible a largo plazo?",
+      answer: "Tenemos planes pensados para distintos ritmos y presupuestos. La idea es que veas esto como una inversión en energía, salud y bienestar, no como una cuota que apenas usas."
     },
     {
-      question: "¿Puedo entrenar si tengo lesiones o limitaciones físicas?",
-      answer: "Sí. Adaptamos ejercicios, cargas y progresiones para que puedas entrenar de forma segura, respetando tus limitaciones y ayudándote a avanzar sin asumir riesgos innecesarios."
+      question: "Tengo una lesión o me duele la espalda, ¿puedo entrenar?",
+      answer: "En la mayoría de casos, sí. Ajustamos ejercicios, cargas y volumen para que puedas mejorar sin empeorar molestias, siempre con una progresión segura y bien guiada."
     },
     {
-      question: "¿Y si no veo resultados rápidamente?",
-      answer: "El progreso depende de la constancia, pero no te dejamos solo. Hacemos seguimiento, ajustamos el plan cuando hace falta y te acompañamos para que notes avances reales y sostenibles."
+      question: "¿En cuánto tiempo empezaré a notar los resultados?",
+      answer: "Depende de tu punto de partida y de la constancia, pero solemos notar cambios en energía, fuerza y sensaciones desde las primeras semanas. Lo importante es que el plan se va ajustando contigo."
     },
     {
-      question: "¿Es aburrido o siempre hago lo mismo?",
-      answer: "Nunca. Variamos ejercicios, técnicas y estímulos para mantener la motivación alta, sin perder el foco en tus objetivos ni convertir cada sesión en una rutina repetitiva."
+      question: "Me aburro rápido en los gimnasios, ¿aquí es siempre lo mismo?",
+      answer: "Para nada. Variamos ejercicios, formatos y objetivos para que cada etapa tenga sentido y no entres en piloto automático. Queremos que progreses, pero también que te apetezca volver."
     }
   ];
 
@@ -34,9 +34,9 @@
       '<div class="premium-faq-shell">',
       '<div class="premium-faq-intro reveal-copy">',
       '<span class="premium-faq-kicker">Preguntas frecuentes</span>',
-      '<h2 class="font-display">Resolvemos las objeciones más habituales antes de empezar.</h2>',
-      '<p>Si te estás planteando entrenar con nosotros, estas son las dudas que más solemos resolver en la primera conversación.</p>',
-      '<a class="premium-faq-link" href="#contact">Hablar con el equipo</a>',
+      '<h2 class="font-display">LO QUE TODOS NOS PREGUNTAN (ANTES DE DAR EL PASO)</h2>',
+      '<p>Sabemos que empezar cuesta. Estas son las dudas que más resolvemos en la primera entrevista.</p>',
+      '<a class="premium-faq-link" href="https://wa.me/34911234567" target="_blank" rel="noopener noreferrer">Hablar con el equipo por WhatsApp</a>',
       "</div>",
       '<div class="premium-faq-list">',
       faqItems.map(function (item, index) {
@@ -148,11 +148,9 @@
     queueBuild();
   }
 
-  var observer = new MutationObserver(function () {
+  new MutationObserver(function () {
     queueBuild();
-  });
-
-  observer.observe(document.documentElement, {
+  }).observe(document.documentElement, {
     childList: true,
     subtree: true
   });
