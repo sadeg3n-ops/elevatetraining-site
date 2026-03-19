@@ -139,16 +139,52 @@ footer {
 #contact .absolute.inset-0.bg-gradient-to-b {
   background: linear-gradient(
     180deg,
-    hsl(220 25% 15% / 0.58) 0%,
-    hsl(220 25% 12% / 0.76) 48%,
-    hsl(220 25% 11% / 0.9) 100%
+    hsl(220 28% 10% / 0.7) 0%,
+    hsl(220 28% 8% / 0.84) 48%,
+    hsl(220 30% 6% / 0.94) 100%
   );
+}
+
+#contact .relative.z-10.container {
+  max-width: 880px !important;
+  padding: 3.25rem 2rem;
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, hsl(220 26% 10% / 0.7), hsl(220 24% 8% / 0.82)),
+    hsl(220 22% 8% / 0.7);
+  box-shadow:
+    0 40px 100px -56px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 hsl(0 0% 100% / 0.06);
+  backdrop-filter: blur(10px);
 }
 
 h2.font-display,
 #contact h2 {
   letter-spacing: 0.04em !important;
   line-height: 1.02;
+}
+
+#contact h2 {
+  color: hsl(0 0% 100%);
+  text-shadow: 0 10px 36px rgba(0, 0, 0, 0.34);
+}
+
+#contact p.text-muted-foreground,
+#contact .text-muted-foreground {
+  color: hsl(0 0% 96% / 0.82) !important;
+}
+
+#contact .text-primary.font-semibold {
+  color: hsl(24 89% 61%) !important;
+}
+
+#contact .flex.items-center.justify-center.gap-8.flex-wrap a {
+  color: hsl(0 0% 100% / 0.8) !important;
+}
+
+#contact .flex.items-center.justify-center.gap-8.flex-wrap a:hover {
+  color: hsl(24 89% 61%) !important;
 }
 
 #about h2,
