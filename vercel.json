@@ -1,81 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/www.elevatetraining.com/index.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/about",
-      "destination": "/www.elevatetraining.com/about/index.html"
-    },
-    {
-      "source": "/about/",
-      "destination": "/www.elevatetraining.com/about/index.html"
-    },
-    {
-      "source": "/buy-classes",
-      "destination": "/www.elevatetraining.com/buy-classes/index.html"
-    },
-    {
-      "source": "/buy-classes/",
-      "destination": "/www.elevatetraining.com/buy-classes/index.html"
-    },
-    {
-      "source": "/classes",
-      "destination": "/www.elevatetraining.com/classes/index.html"
-    },
-    {
-      "source": "/classes/",
-      "destination": "/www.elevatetraining.com/classes/index.html"
-    },
-    {
-      "source": "/faq",
-      "destination": "/www.elevatetraining.com/faq/index.html"
-    },
-    {
-      "source": "/faq/",
-      "destination": "/www.elevatetraining.com/faq/index.html"
-    },
-    {
-      "source": "/intro-offers",
-      "destination": "/www.elevatetraining.com/intro-offers/index.html"
-    },
-    {
-      "source": "/intro-offers/",
-      "destination": "/www.elevatetraining.com/intro-offers/index.html"
-    },
-    {
-      "source": "/pilates-vs-lagree",
-      "destination": "/www.elevatetraining.com/pilates-vs-lagree/index.html"
-    },
-    {
-      "source": "/pilates-vs-lagree/",
-      "destination": "/www.elevatetraining.com/pilates-vs-lagree/index.html"
-    },
-    {
-      "source": "/register-login",
-      "destination": "/www.elevatetraining.com/register-login/index.html"
-    },
-    {
-      "source": "/register-login/",
-      "destination": "/www.elevatetraining.com/register-login/index.html"
-    },
-    {
-      "source": "/schedule",
-      "destination": "/www.elevatetraining.com/schedule/index.html"
-    },
-    {
-      "source": "/schedule/",
-      "destination": "/www.elevatetraining.com/schedule/index.html"
-    },
-    {
-      "source": "/website-terms",
-      "destination": "/www.elevatetraining.com/website-terms/index.html"
-    },
-    {
-      "source": "/website-terms/",
-      "destination": "/www.elevatetraining.com/website-terms/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

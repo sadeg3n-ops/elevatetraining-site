@@ -1,16 +1,13 @@
-# Elevate Training Mirror
+# Flexity Gym Landing Clone
 
-Static mirror of `www.elevatetraining.com` prepared for deployment on Vercel.
+Exact static deployment of the Vercel site at `https://flexity-gym-landing.vercel.app`.
 
 ## Structure
 
-- `www.elevatetraining.com/`: mirrored HTML pages
-- `static.parastorage.com/`: mirrored Wix runtime assets
-- `static.wixstatic.com/`: mirrored Wix media assets
-- `browser.sentry-cdn.com/`: mirrored Sentry asset used by the site
-- `vercel.json`: route mapping from clean URLs to mirrored HTML files
+- `index.html`: app entrypoint copied from the target deployment
+- `assets/`: bundled CSS and JavaScript copied from the target deployment
+- `vercel.json`: static file handling plus SPA fallback to `index.html`
 
 ## Deploy
 
 Deploy the repository root to Vercel as a static site. No build step is required.
-
