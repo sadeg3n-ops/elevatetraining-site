@@ -1,53 +1,95 @@
 (function () {
   var buildQueued = false;
-  var fallbackImages = [
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80",
-    "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=900&q=80",
-    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80"
-  ];
-
   var classData = [
     {
-      title: "Entrenamiento de fuerza",
-      shortLabel: "Potencia, músculo y salud",
-      badge: "Potencia, músculo y salud",
-      stageKicker: "CLASE 01",
-      summary: "Construye una base sólida, previene lesiones y siéntete más fuerte para tu día a día.",
-      featuredTitle: "Hazte fuerte de verdad.",
-      featuredBody: "Gana fuerza, estabilidad y confianza con sesiones pensadas para mejorar tu rendimiento dentro y fuera del gimnasio.",
+      title: "Musculación y Fuerza",
+      shortLabel: "Construye una base sólida",
+      badge: "FUERZA",
+      stageKicker: "ACTIVIDAD",
+      summary: "Entrena con peso libre y máquinas guiadas para ganar fuerza, masa muscular y mejorar tu metabolismo.",
+      featuredTitle: "Hazte más fuerte.",
+      featuredBody: "Desarrolla tu fuerza física con la técnica correcta.",
       points: [
-        "Progresiones adaptadas a tu nivel",
-        "Técnica cuidada en cada repetición",
-        "Mejoras que se notan en tu día a día"
-      ]
+        "Progresiones adaptadas",
+        "Técnica cuidada",
+        "Mejoras funcionales"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80"
     },
     {
-      title: "HIIT",
+      title: "HIIT y Acondicionamiento",
       shortLabel: "Alta intensidad, máxima quema",
-      badge: "ALTA INTENSIDAD - CLASE 02 HIIT",
-      stageKicker: "CLASE 02",
-      summary: "El aliado perfecto para quemar grasa y disparar tu resistencia. Sales sudando, pero con una sonrisa.",
-      featuredTitle: "No tienes tiempo que perder.",
-      featuredBody: "Quema calorías y lleva tu resistencia al siguiente nivel con sesiones interválicas intensas, divertidas y eficientes.",
+      badge: "HIIT",
+      stageKicker: "ACTIVIDAD",
+      summary: "Intervalos de alta intensidad diseñados para mejorar tu capacidad cardiovascular y quemar grasa eficientemente.",
+      featuredTitle: "Suda y progresa.",
+      featuredBody: "Lleva tu resistencia al límite en cada sesión.",
       points: [
-        "Adaptada a tu nivel físico",
-        "Con técnica 100% guiada",
-        "Resultados que se mantienen en el tiempo"
-      ]
+        "Quema calórica alta",
+        "Mejora cardiovascular",
+        "Sesiones dinámicas"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80"
     },
     {
-      title: "Movilidad y Yoga",
-      shortLabel: "Recuperación y fluidez",
-      badge: "RECUPERACIÓN Y FLUIDEZ",
-      stageKicker: "CLASE 03",
-      summary: "Dale un respiro a tu cuerpo. Mejora tu postura, gana flexibilidad y resetea tu mente.",
-      featuredTitle: "Recupera, respira y vuelve mejor.",
-      featuredBody: "Descarga tensiones, mejora tu movilidad y recupera sensaciones con una clase que cuida tu cuerpo sin perder enfoque.",
+      title: "Pilates",
+      shortLabel: "Control y equilibrio postural",
+      badge: "PILATES",
+      stageKicker: "ACTIVIDAD",
+      summary: "Fortalece tu core, mejora tu alineación corporal y previene lesiones con movimientos precisos y conscientes.",
+      featuredTitle: "Conecta con tu cuerpo.",
+      featuredBody: "El equilibrio perfecto entre fuerza y control.",
       points: [
-        "Más movilidad y menos rigidez",
-        "Trabajo guiado con control postural",
-        "Una pausa real para tu mente y tu cuerpo"
-      ]
+        "Control postural",
+        "Fortalecimiento del core",
+        "Prevención de lesiones"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=900&q=80"
+    },
+    {
+      title: "Entrenamiento Funcional",
+      shortLabel: "Muévete mejor en tu día a día",
+      badge: "FUNCIONAL",
+      stageKicker: "ACTIVIDAD",
+      summary: "Ejercicios que imitan movimientos cotidianos para mejorar tu resistencia, agilidad y coordinación general.",
+      featuredTitle: "Preparado para todo.",
+      featuredBody: "Entrena tu cuerpo para los retos de la vida real.",
+      points: [
+        "Mejora de la agilidad",
+        "Entrenamiento integral",
+        "Transferencia a rutinas diarias"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1526506454794-8149ebaa1291?w=900&q=80"
+    },
+    {
+      title: "Yoga",
+      shortLabel: "Flexibilidad, respiración y mente",
+      badge: "YOGA",
+      stageKicker: "ACTIVIDAD",
+      summary: "Fluye a través de asanas que mejoran tu flexibilidad, reducen el estrés y promueven la paz mental.",
+      featuredTitle: "Encuentra tu centro.",
+      featuredBody: "Un espacio para la respiración y la calma.",
+      points: [
+        "Mayor flexibilidad",
+        "Reducción del estrés",
+        "Conexión cuerpo-mente"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80"
+    },
+    {
+      title: "Cardio Box",
+      shortLabel: "Libera tensión con ritmo",
+      badge: "CARDIO",
+      stageKicker: "ACTIVIDAD",
+      summary: "Combina movimientos de boxeo y artes marciales al ritmo de la música para un cardio explosivo y divertido.",
+      featuredTitle: "Golpea el estrés.",
+      featuredBody: "Diversión y sudor asegurados en cada clase.",
+      points: [
+        "Coordinación y ritmo",
+        "Cardio de alto impacto divertido",
+        "Alivio del estrés"
+      ],
+      fallbackImage: "https://images.unsplash.com/photo-1549833284-6a7df91c1f65?w=900&q=80"
     }
   ];
 
@@ -57,40 +99,6 @@
     });
   }
 
-  function renderStage(stage, item, index, image) {
-    stage.classList.add("is-changing");
-
-    window.setTimeout(function () {
-      stage.innerHTML = [
-        '<div class="premium-class-visual">',
-        '<img src="' + image + '" alt="' + item.title + '" loading="lazy" decoding="async">',
-        '<div class="premium-class-overlay"></div>',
-        '<span class="premium-class-badge">' + item.badge + "</span>",
-        "</div>",
-        '<div class="premium-class-copy">',
-        '<div class="premium-class-copy-main">',
-        '<span class="premium-class-kicker">' + item.stageKicker + "</span>",
-        "<h3>" + item.title + "</h3>",
-        '<p class="premium-class-lead">' + item.shortLabel + "</p>",
-        '<p class="premium-class-body">' + item.featuredBody + "</p>",
-        '<ul class="premium-class-points">',
-        item.points.map(function (point) {
-          return "<li>" + point + "</li>";
-        }).join(""),
-        "</ul>",
-        "</div>",
-        '<div class="premium-class-footer">',
-        '<p class="premium-class-highlight">' + item.featuredTitle + "</p>",
-        '<a class="premium-class-cta" href="#contact">Reserva una clase de prueba</a>',
-        "</div>",
-        "</div>"
-      ].join("");
-
-      window.requestAnimationFrame(function () {
-        stage.classList.remove("is-changing");
-      });
-    }, 120);
-  }
 
   function buildPremiumClasses() {
     var section = document.getElementById("classes");
@@ -106,7 +114,7 @@
     var images = getCurrentImages(section);
     var items = classData.map(function (item, index) {
       return Object.assign({}, item, {
-        image: images[index] || fallbackImages[index]
+        image: images[index] || item.fallbackImage
       });
     });
 
@@ -114,70 +122,44 @@
 
     container.innerHTML = [
       '<div class="premium-classes-shell">',
-      '<div class="text-center">',
+      '<div class="premium-classes-intro">',
       '<h2 class="font-display">ENCUENTRA TU <span class="text-primary">RITMO</span></h2>',
-      "<p>De levantar pesado a fluir sin estrés. Descubre la clase que mejor encaja con tus objetivos.</p>",
+      "<p>Desde trabajar la fuerza bruta hasta fluir con tu respiración. Un espacio y una disciplina para cada meta.</p>",
       "</div>",
-      '<div class="premium-classes-layout">',
-      '<div class="premium-classes-nav" role="tablist" aria-label="Clases destacadas"></div>',
-      '<div class="premium-class-stage glass-card"></div>',
+      '<div class="premium-classes-grid">',
+      items.map(function (item, index) {
+        return [
+          '<article class="premium-class-card">',
+          '<div class="premium-class-card-visual">',
+          '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" decoding="async">',
+          '<div class="premium-class-card-overlay"></div>',
+          '<span class="premium-class-card-badge">' + item.badge + "</span>",
+          "</div>",
+          '<div class="premium-class-card-content">',
+          '<div class="premium-class-card-header">',
+          "<h3>" + item.title + "</h3>",
+          '<p class="premium-class-card-lead">' + item.shortLabel + "</p>",
+          "</div>",
+          '<div class="premium-class-card-body">',
+          "<p>" + item.summary + "</p>",
+          '<ul class="premium-class-card-points">',
+          item.points.map(function (point) {
+            return "<li>" + point + "</li>";
+          }).join(""),
+          "</ul>",
+          "</div>",
+          '<div class="premium-class-card-footer">',
+          '<a class="premium-class-card-cta" href="#contact">Saber más</a>',
+          "</div>",
+          "</div>",
+          "</article>"
+        ].join("");
+      }).join(""),
       "</div>",
       "</div>"
     ].join("");
 
-    var nav = container.querySelector(".premium-classes-nav");
-    var stage = container.querySelector(".premium-class-stage");
-    var activeIndex = 1;
-    var rotationTimer;
-
-    function setActive(index) {
-      activeIndex = index;
-
-      Array.from(nav.querySelectorAll(".premium-class-tab")).forEach(function (button, buttonIndex) {
-        var isActive = buttonIndex === activeIndex;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
-
-      renderStage(stage, items[activeIndex], activeIndex, items[activeIndex].image);
-    }
-
-    function restartRotation() {
-      window.clearInterval(rotationTimer);
-      rotationTimer = window.setInterval(function () {
-        setActive((activeIndex + 1) % items.length);
-      }, 6500);
-    }
-
-    items.forEach(function (item, index) {
-      var button = document.createElement("button");
-      button.type = "button";
-      button.className = "premium-class-tab";
-      button.setAttribute("role", "tab");
-      button.innerHTML = [
-        '<span class="premium-class-tab-index">' + String(index + 1).padStart(2, "0") + "</span>",
-        '<strong class="block font-heading text-lg">' + item.title + "</strong>",
-        '<span class="premium-class-tab-tag">' + item.shortLabel + "</span>"
-      ].join("");
-
-      button.addEventListener("click", function () {
-        setActive(index);
-        restartRotation();
-      });
-
-      nav.appendChild(button);
-    });
-
-    setActive(activeIndex);
-    restartRotation();
-
-    section.addEventListener("mouseenter", function () {
-      window.clearInterval(rotationTimer);
-    });
-
-    section.addEventListener("mouseleave", function () {
-      restartRotation();
-    });
+    // No specific logic needed after rendering the grid
   }
 
   function queueBuild() {

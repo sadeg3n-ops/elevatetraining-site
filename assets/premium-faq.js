@@ -34,7 +34,7 @@
       '<div class="premium-faq-shell">',
       '<div class="premium-faq-intro reveal-copy">',
       '<span class="premium-faq-kicker">Preguntas frecuentes</span>',
-      '<h2 class="font-display">LO QUE TODOS NOS PREGUNTAN (ANTES DE DAR EL PASO)</h2>',
+      '<h2 class="font-display">LO QUE TODOS<br>NOS <span class="text-primary">PREGUNTAN</span></h2>',
       '<p>Sabemos que empezar cuesta. Estas son las dudas que más resolvemos en la primera entrevista.</p>',
       '<a class="premium-faq-link" href="https://wa.me/34911234567" target="_blank" rel="noopener noreferrer">Hablar con el equipo por WhatsApp</a>',
       "</div>",

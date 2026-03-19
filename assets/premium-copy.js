@@ -112,7 +112,105 @@
       });
     }
 
-    setText(menuButton, "Empieza tu cambio");
+    if (menuButton) {
+      var textNode = Array.from(menuButton.childNodes).find(function (n) { return n.nodeType === 3; });
+      if (textNode) {
+        textNode.nodeValue = "Empieza tu cambio";
+      } else if (menuButton.firstChild && menuButton.firstChild.nodeType === 1) {
+        menuButton.firstChild.textContent = "Empieza tu cambio";
+      } else {
+        menuButton.textContent = "Empieza tu cambio";
+      }
+    }
+  }
+
+  /* ── Standalone premium form overlay ── */
+  function createFormOverlay() {
+    if (document.getElementById("premium-form-overlay")) return;
+
+    var overlay = document.createElement("div");
+    overlay.id = "premium-form-overlay";
+    overlay.className = "premium-form-overlay";
+    overlay.innerHTML = [
+      '<div class="premium-form-panel">',
+      '<button type="button" class="premium-form-close" aria-label="Cerrar">&times;</button>',
+      '<h2>Empieza tu cambio</h2>',
+      '<p class="premium-form-sub">Rellena tus datos y te contactaremos en menos de 24 h.</p>',
+      '<form id="premium-form">',
+      '<div class="premium-form-group"><label for="pf-name">Nombre</label><input id="pf-name" type="text" placeholder="Tu nombre completo" required></div>',
+      '<div class="premium-form-group"><label for="pf-email">Email</label><input id="pf-email" type="email" placeholder="tu@email.com" required></div>',
+      '<div class="premium-form-group"><label for="pf-goal">Objetivo</label><select id="pf-goal" required><option value="" disabled selected>Selecciona tu objetivo</option><option value="weight-loss">Pérdida de peso</option><option value="muscle-gain">Ganar músculo</option><option value="general-fitness">Fitness general</option><option value="flexibility">Flexibilidad</option></select></div>',
+      '<div class="premium-form-group"><label for="pf-time">Horario preferido</label><select id="pf-time" required><option value="" disabled selected>Selecciona horario</option><option value="morning">Mañana (6–10h)</option><option value="midday">Mediodía (10–14h)</option><option value="afternoon">Tarde (14–18h)</option><option value="evening">Noche (18–22h)</option></select></div>',
+      '<div class="premium-form-group"><label for="pf-notes">¿Algo que debamos saber? (opcional)</label><textarea id="pf-notes" placeholder="Tu objetivo principal, lesiones, preguntas..." rows="3"></textarea></div>',
+      '<button type="submit" class="premium-form-submit">Empieza ahora</button>',
+      '</form>',
+      '</div>'
+    ].join("");
+
+    document.body.appendChild(overlay);
+
+    // Close
+    overlay.querySelector(".premium-form-close").addEventListener("click", closePremiumForm);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closePremiumForm();
+    });
+
+    // Submit
+    overlay.querySelector("#premium-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("¡Gracias! Nos pondremos en contacto contigo pronto.");
+      e.target.reset();
+      closePremiumForm();
+    });
+  }
+
+  function openPremiumForm() {
+    createFormOverlay();
+    var overlay = document.getElementById("premium-form-overlay");
+    if (overlay) {
+      requestAnimationFrame(function () {
+        overlay.classList.add("is-open");
+      });
+    }
+  }
+
+  function closePremiumForm() {
+    var overlay = document.getElementById("premium-form-overlay");
+    if (overlay) {
+      overlay.classList.remove("is-open");
+    }
+  }
+
+  function bindCTAButtons() {
+    // Nav button
+    var navBtn = document.querySelector("nav .hidden.md\\:flex > button");
+    if (navBtn && !navBtn.dataset.premiumFormBound) {
+      navBtn.dataset.premiumFormBound = "true";
+      navBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openPremiumForm();
+      }, true);
+    }
+
+    // All CTA buttons with onClick that opens the original React dialog —
+    // match any button containing "Empieza" text anywhere on the page
+    document.querySelectorAll("button").forEach(function (btn) {
+      if (btn.dataset.premiumFormBound) return;
+      var text = btn.textContent.trim();
+      if (
+        text === "Empieza ahora" ||
+        text === "Empieza tu cambio" ||
+        text === "Reserva tu clase gratuita"
+      ) {
+        btn.dataset.premiumFormBound = "true";
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          openPremiumForm();
+        }, true);
+      }
+    });
   }
 
   function updateHero() {
@@ -143,9 +241,12 @@
 
     if (proofRow && proofRow.dataset.premiumProof !== "true") {
       proofRow.dataset.premiumProof = "true";
-      proofRow.innerHTML = '<span class="premium-social-proof">★★★★★ 4.9/5 | Más de 300 clientes confían en nosotros.</span>';
+      proofRow.innerHTML = '<span class="premium-social-proof"><span class="premium-social-stars">★★★★★</span><span class="premium-social-divider"></span><span class="premium-social-text"><strong>4.9 / 5</strong> — Más de 300 personas confían en nosotros</span></span>';
     } else if (proofRow) {
-      setText(proofRow.querySelector(".premium-social-proof"), "★★★★★ 4.9/5 | Más de 300 clientes confían en nosotros.");
+      var proofSpan = proofRow.querySelector(".premium-social-proof");
+      if (proofSpan && !proofSpan.querySelector(".premium-social-stars")) {
+        proofSpan.innerHTML = '<span class="premium-social-stars">★★★★★</span><span class="premium-social-divider"></span><span class="premium-social-text"><strong>4.9 / 5</strong> — Más de 300 personas confían en nosotros</span>';
+      }
     }
   }
 
@@ -276,7 +377,24 @@
     }
 
     setText(button, "Quiero reservar mi clase gratuita");
+
+    // Immersive scroll effect logic
+    if (!section.dataset.immersiveBound) {
+      section.dataset.immersiveBound = "true";
+      // We use a low threshold to trigger it a bit before they scroll all the way down
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.35) {
+            section.classList.add("is-immersive");
+          } else {
+            section.classList.remove("is-immersive");
+          }
+        });
+      }, { threshold: [0.35] });
+      observer.observe(section);
+    }
   }
+
 
   function applyCopy() {
     updateMeta();
@@ -286,6 +404,7 @@
     updatePricing();
     updateTestimonials();
     updateContact();
+    bindCTAButtons();
   }
 
   function queueApply() {

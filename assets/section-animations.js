@@ -145,7 +145,7 @@
       registerTarget(block);
     });
 
-    section.querySelectorAll(".premium-class-tab, .premium-faq-item").forEach(function (item, index) {
+    section.querySelectorAll(".premium-class-tab, .premium-class-card, .premium-faq-item").forEach(function (item, index) {
       item.classList.add("reveal-item");
       item.style.setProperty("--stagger-index", String(index));
       applyVariant(item, getIndexedVariant(config.item, index));
