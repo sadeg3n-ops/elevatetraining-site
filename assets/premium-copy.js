@@ -61,7 +61,7 @@
       if (tag) {
         tag.setAttribute(
           "content",
-          "Da el impulso que tu cuerpo necesita en Impulso Gym Madrid. Entrenamiento inteligente, clases guiadas y acompañamiento real para conseguir resultados."
+          "Transforma tu cuerpo en Impulso Gym. Entrenadores expertos, clases guiadas y planes flexibles para avanzar con fuerza y constancia."
         );
       }
     });
@@ -133,19 +133,19 @@
     var primaryAction = actionRow ? actionRow.querySelector("button") : null;
     var secondaryAction = actionRow ? actionRow.querySelector('a[href="#classes"]') : null;
 
-    setHTML(heading, 'DA EL <span class="text-primary">IMPULSO</span><br>QUE TU CUERPO NECESITA.');
+    setHTML(heading, 'FUERTE HOY.<br><span class="text-primary">MÁS FUERTE</span> MAÑANA.');
     setText(
       body,
-      "No prometemos milagros. Prometemos resultados. Deja atrás las rutinas aburridas. Entrena con sentido, supera tus límites y construye tu mejor versión con un equipo que no te dejará tirar la toalla."
+      "Transforma tu cuerpo, eleva tu mente y desbloquea tu máximo potencial con entrenamiento de alto nivel."
     );
-    setText(primaryAction, "Empieza tu cambio hoy");
+    setText(primaryAction, "Empieza ahora");
     setText(secondaryAction, "Ver clases");
 
     if (proofRow && proofRow.dataset.premiumProof !== "true") {
       proofRow.dataset.premiumProof = "true";
-      proofRow.innerHTML = '<span class="premium-social-proof">★★★★★ 4.9/5 | Más de 300 personas en Madrid ya han transformado su estilo de vida con nosotros.</span>';
+      proofRow.innerHTML = '<span class="premium-social-proof">★★★★★ 4.9/5 | Más de 300 clientes confían en nosotros.</span>';
     } else if (proofRow) {
-      setText(proofRow.querySelector(".premium-social-proof"), "★★★★★ 4.9/5 | Más de 300 personas en Madrid ya han transformado su estilo de vida con nosotros.");
+      setText(proofRow.querySelector(".premium-social-proof"), "★★★★★ 4.9/5 | Más de 300 clientes confían en nosotros.");
     }
   }
 
