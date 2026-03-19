@@ -44,7 +44,6 @@
       '<div class="premium-team-shell">',
       '<div class="premium-team-head reveal-copy reveal-variant-soft" style="--stagger-index:1;">',
       '<h2 class="font-display">CONOCE A NUESTRO EQUIPO</h2>',
-      "<p>Profesionales apasionados en Madrid que no solo cuentan repeticiones, sino que te enseñan a entrenar.</p>",
       "</div>",
       '<div class="premium-team-grid">',
       members.map(function (member, index) {
