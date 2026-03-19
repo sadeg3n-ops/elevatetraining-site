@@ -1,5 +1,5 @@
 .DS_Store
+.tools
 .vercel
 node_modules
 __pycache__
-
