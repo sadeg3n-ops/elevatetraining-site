@@ -68,6 +68,49 @@
     opacity 0.8s ease;
 }
 
+.js-animations-ready .reveal-variant-soft {
+  transform: translateY(16px);
+}
+
+.js-animations-ready .reveal-variant-rise {
+  transform: translateY(52px) scale(0.985);
+}
+
+.js-animations-ready .reveal-variant-side-left {
+  transform: translate3d(-54px, 0, 0);
+}
+
+.js-animations-ready .reveal-variant-side-right {
+  transform: translate3d(54px, 0, 0);
+}
+
+.js-animations-ready .reveal-variant-zoom {
+  transform: scale(0.92);
+  filter: blur(8px);
+  transition-duration: 1s;
+}
+
+.js-animations-ready .reveal-variant-pop {
+  transform: translateY(24px) scale(0.94);
+}
+
+.js-animations-ready .reveal-variant-tilt-left {
+  transform: translateY(34px) rotate(-1.4deg);
+}
+
+.js-animations-ready .reveal-variant-tilt-right {
+  transform: translateY(34px) rotate(1.4deg);
+}
+
+.js-animations-ready .reveal-variant-curtain {
+  clip-path: inset(0 0 14% 0);
+  transform: translateY(30px);
+  transition:
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.95s ease,
+    clip-path 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .js-animations-ready .section-divider {
   transform: scaleX(0.84);
   transform-origin: center;
@@ -83,6 +126,8 @@
 .js-animations-ready .is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
+  clip-path: inset(0 0 0 0);
 }
 
 .js-animations-ready section.is-current .font-display .text-primary,

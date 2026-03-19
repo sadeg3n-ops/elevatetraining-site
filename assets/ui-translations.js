@@ -2,7 +2,7 @@
   var textTranslations = new Map([
     ["FLEXITY GYM", "IMPULSO GYM"],
     ["¿POR QUÉ ELEGIR", "¿POR QUÉ"],
-    ["NOSOTROS?", "ELEGIRNOS A NOSOTROS?"],
+    ["NOSOTROS?", "ELEGIRNOS?"],
     ["Entrenadores certificados", "Equipo experto"],
     ["Nuestros coaches cuentan con certificaciones de alto nivel y años de experiencia real.", "Profesionales con experiencia real y formación especializada."],
     ["Entrenador Principal", "Especialista en CrossFit"],
@@ -32,7 +32,9 @@
     ["Afternoon (2PM – 6PM)", "Tarde (14:00 - 18:00)"],
     ["Evening (6PM – 10PM)", "Noche (18:00 - 22:00)"],
     ["Welcome to Flexity Gym!", "Solicitud recibida"],
-    ["We'll reach out within 24 hours. Check your email for next steps.", "Te contactaremos en menos de 24 horas. Revisa tu correo para los siguientes pasos."]
+    ["We'll reach out within 24 hours. Check your email for next steps.", "Te contactaremos en menos de 24 horas. Revisa tu correo para los siguientes pasos."],
+    ["Oops! Page not found", "Ups, esta página no existe"],
+    ["Return to Home", "Volver al inicio"]
   ]);
 
   var placeholderTranslations = new Map([
