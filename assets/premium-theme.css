@@ -685,6 +685,8 @@ a.btn-glow,
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 @media (min-width: 650px) {
@@ -711,7 +713,7 @@ a.btn-glow,
 
 #classes .premium-class-card-visual {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
