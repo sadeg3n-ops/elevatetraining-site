@@ -14,7 +14,7 @@
         "Técnica cuidada",
         "Mejoras funcionales"
       ],
-      fallbackImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80"
+      image: "assets/classes/fuerza.jpg"
     },
     {
       title: "HIIT y Acondicionamiento",
@@ -29,7 +29,7 @@
         "Mejora cardiovascular",
         "Sesiones dinámicas"
       ],
-      fallbackImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80"
+      image: "assets/classes/hiit.jpg"
     },
     {
       title: "Pilates",
@@ -44,7 +44,7 @@
         "Fortalecimiento del core",
         "Prevención de lesiones"
       ],
-      fallbackImage: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=900&q=80"
+      image: "assets/classes/pilates.jpg"
     },
     {
       title: "Entrenamiento Funcional",
@@ -59,46 +59,9 @@
         "Entrenamiento integral",
         "Transferencia a rutinas diarias"
       ],
-      fallbackImage: "https://images.unsplash.com/photo-1526506454794-8149ebaa1291?w=900&q=80"
-    },
-    {
-      title: "Yoga",
-      shortLabel: "Flexibilidad, respiración y mente",
-      badge: "YOGA",
-      stageKicker: "ACTIVIDAD",
-      summary: "Fluye a través de asanas que mejoran tu flexibilidad, reducen el estrés y promueven la paz mental.",
-      featuredTitle: "Encuentra tu centro.",
-      featuredBody: "Un espacio para la respiración y la calma.",
-      points: [
-        "Mayor flexibilidad",
-        "Reducción del estrés",
-        "Conexión cuerpo-mente"
-      ],
-      fallbackImage: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80"
-    },
-    {
-      title: "Cardio Box",
-      shortLabel: "Libera tensión con ritmo",
-      badge: "CARDIO",
-      stageKicker: "ACTIVIDAD",
-      summary: "Combina movimientos de boxeo y artes marciales al ritmo de la música para un cardio explosivo y divertido.",
-      featuredTitle: "Golpea el estrés.",
-      featuredBody: "Diversión y sudor asegurados en cada clase.",
-      points: [
-        "Coordinación y ritmo",
-        "Cardio de alto impacto divertido",
-        "Alivio del estrés"
-      ],
-      fallbackImage: "https://images.unsplash.com/photo-1549833284-6a7df91c1f65?w=900&q=80"
+      image: "assets/classes/funcional.jpg"
     }
   ];
-
-  function getCurrentImages(section) {
-    return Array.from(section.querySelectorAll(".group img")).map(function (image) {
-      return image.getAttribute("src") || image.src;
-    });
-  }
-
 
   function buildPremiumClasses() {
     var section = document.getElementById("classes");
@@ -111,12 +74,7 @@
       return;
     }
 
-    var images = getCurrentImages(section);
-    var items = classData.map(function (item, index) {
-      return Object.assign({}, item, {
-        image: images[index] || item.fallbackImage
-      });
-    });
+    var items = classData;
 
     section.dataset.premiumClassesApplied = "true";
 
