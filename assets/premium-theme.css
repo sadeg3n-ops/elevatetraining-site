@@ -259,7 +259,7 @@ h2.font-display,
 #testimonials h2,
 #faq h2,
 #contact h2 {
-  font-size: clamp(2.2rem, 4vw, 4.25rem);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
 }
 
 #about .container > p,
@@ -682,8 +682,15 @@ a.btn-glow,
 
 #classes .premium-classes-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
+}
+
+@media (min-width: 650px) {
+  #classes .premium-classes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
 }
 
 #classes .premium-class-card {
@@ -914,16 +921,15 @@ a.btn-glow,
   font-family: "Montserrat", sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
-  transition:
-    transform 0.28s ease,
-    border-color 0.28s ease,
-    box-shadow 0.28s ease;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #faq .premium-faq-link:hover {
-  transform: translateY(-2px);
-  border-color: hsl(var(--primary) / 0.55);
-  box-shadow: 0 18px 40px -30px hsl(var(--primary) / 0.45);
+  transform: translateY(-4px) scale(1.03);
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: transparent;
+  box-shadow: 0 16px 32px -12px hsl(var(--primary) / 0.6);
 }
 
 #faq .premium-faq-list {
@@ -1071,7 +1077,6 @@ footer .container:last-child {
 
 
   #classes .premium-classes-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -1118,8 +1123,10 @@ footer .container:last-child {
   }
 }
 
-@media (max-width: 600px) {
-  #classes .premium-classes-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  /* Reduce massive white spaces on mobile */
+  #about, #classes, #pricing, #trainers, #testimonials, #contact, #faq {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
   }
 }
