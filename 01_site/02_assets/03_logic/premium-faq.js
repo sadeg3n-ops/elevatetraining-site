@@ -36,7 +36,6 @@
       '<span class="premium-faq-kicker">Preguntas frecuentes</span>',
       '<h2 class="font-display">LO QUE TODOS<br>NOS <span class="text-primary">PREGUNTAN</span></h2>',
       '<p>Estas son las dudas que más resolvemos antes de empezar.</p>',
-      '<a class="premium-faq-link" href="https://wa.me/34911234567" target="_blank" rel="noopener noreferrer">Hablar con el equipo por WhatsApp</a>',
       "</div>",
       '<div class="premium-faq-list">',
       faqItems.map(function (item, index) {
