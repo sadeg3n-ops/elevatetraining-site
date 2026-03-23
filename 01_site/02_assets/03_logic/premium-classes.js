@@ -78,6 +78,8 @@
 
     section.dataset.premiumClassesApplied = "true";
 
+    var isMobile = window.innerWidth < 768;
+
     container.innerHTML = [
       '<div class="premium-classes-shell">',
       '<div class="premium-classes-intro">',
@@ -86,67 +88,70 @@
       "</div>",
       '<div class="premium-classes-grid">',
       items.map(function (item, index) {
-        return [
-          '<article class="premium-class-card">',
-          '<div class="premium-class-card-visual">',
-          '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" decoding="async">',
-          '<div class="premium-class-card-overlay"></div>',
-          '<span class="premium-class-card-badge">' + item.badge + "</span>",
-          "</div>",
-          '<div class="premium-class-card-content">',
-          '<div class="premium-class-card-header">',
-          "<h3>" + item.title + "</h3>",
-          '<p class="premium-class-card-lead">' + item.shortLabel + "</p>",
-          "</div>",
-          '<div class="premium-class-card-body">',
-          "<p>" + item.summary + "</p>",
-          '<ul class="premium-class-card-points">',
-          item.points.map(function (point) {
-            return "<li>" + point + "</li>";
-          }).join(""),
-          "</ul>",
-          "</div>",
-          '<div class="premium-class-card-footer">',
-          '<a class="premium-class-card-cta" href="#contact">Saber más</a>',
-          "</div>",
-          "</div>",
-          "</article>"
-        ].join("");
+        if (isMobile) {
+          return [
+            '<article class="premium-class-card">',
+            '<div class="premium-class-card-visual">',
+            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" decoding="async">',
+            '<div class="premium-class-card-overlay"></div>',
+            '<span class="premium-class-card-badge">' + item.badge + "</span>",
+            "</div>",
+            '<div class="premium-class-card-content">',
+            '<details class="premium-class-details">',
+            '<summary class="premium-class-card-header">',
+            '<div class="premium-class-header-text">',
+            "<h3>" + item.title + "</h3>",
+            '<p class="premium-class-card-lead">' + item.shortLabel + "</p>",
+            "</div>",
+            '<span class="card-toggle" aria-hidden="true"></span>',
+            "</summary>",
+            '<div class="premium-class-card-body">',
+            "<p>" + item.summary + "</p>",
+            '<ul class="premium-class-card-points">',
+            item.points.map(function (point) {
+              return "<li>" + point + "</li>";
+            }).join(""),
+            "</ul>",
+            "</div>",
+            '<div class="premium-class-card-footer">',
+            '<a class="premium-class-card-cta" href="#contact">Saber más</a>',
+            "</div>",
+            "</details>",
+            "</div>",
+            "</article>"
+          ].join("");
+        } else {
+          return [
+            '<article class="premium-class-card">',
+            '<div class="premium-class-card-visual">',
+            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" decoding="async">',
+            '<div class="premium-class-card-overlay"></div>',
+            '<span class="premium-class-card-badge">' + item.badge + "</span>",
+            "</div>",
+            '<div class="premium-class-card-content">',
+            '<div class="premium-class-card-header">',
+            "<h3>" + item.title + "</h3>",
+            '<p class="premium-class-card-lead">' + item.shortLabel + "</p>",
+            "</div>",
+            '<div class="premium-class-card-body">',
+            "<p>" + item.summary + "</p>",
+            '<ul class="premium-class-card-points">',
+            item.points.map(function (point) {
+              return "<li>" + point + "</li>";
+            }).join(""),
+            "</ul>",
+            "</div>",
+            '<div class="premium-class-card-footer">',
+            '<a class="premium-class-card-cta" href="#contact">Saber más</a>',
+            "</div>",
+            "</div>",
+            "</article>"
+          ].join("");
+        }
       }).join(""),
       "</div>",
       "</div>"
     ].join("");
-
-    // No specific logic needed after rendering the grid
-
-    // Mobile: add toggle chevrons and expand/collapse
-    if (window.innerWidth < 768) {
-      var allCards = document.querySelectorAll("#classes .premium-class-card");
-      allCards.forEach(function (card) {
-        var header = card.querySelector(".premium-class-card-header");
-        if (!header || header.querySelector(".card-toggle")) return;
-
-        // Wrap title + lead in a div so chevron stays to the right
-        var titleWrap = document.createElement("div");
-        titleWrap.style.flex = "1";
-        while (header.firstChild) {
-          titleWrap.appendChild(header.firstChild);
-        }
-        header.appendChild(titleWrap);
-
-        // Add chevron
-        var chevron = document.createElement("span");
-        chevron.className = "card-toggle";
-        chevron.setAttribute("aria-hidden", "true");
-        header.appendChild(chevron);
-
-        // Click handler - only toggle this card
-        header.addEventListener("click", function (e) {
-          e.stopPropagation();
-          card.classList.toggle("is-expanded");
-        });
-      });
-    }
   }
 
   var classesFullyBuilt = false;
