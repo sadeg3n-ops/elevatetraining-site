@@ -1574,21 +1574,19 @@ footer h3 {
     justify-content: center;
   }
 
-  /* Right-edge gradient fade to hint more cards */
+  /* Carousel scroll container */
   #testimonials .flex.overflow-x-auto {
     position: relative;
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    padding-bottom: 2.5rem;
-    padding-left: 0.5rem;
-    padding-right: 1rem;
-    scroll-padding-left: 0.5rem;
+    padding: 0 1rem 2.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Narrower cards so they don't clip */
   #testimonials .glass-card.flex-shrink-0 {
-    width: 78vw !important;
+    width: 75vw !important;
     min-width: 0;
+    scroll-snap-align: center;
   }
 
   /* Scroll indicator dots container */
