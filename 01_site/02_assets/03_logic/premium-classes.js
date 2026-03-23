@@ -140,19 +140,10 @@
         chevron.setAttribute("aria-hidden", "true");
         header.appendChild(chevron);
 
-        // Click handler
-        header.addEventListener("click", function () {
-          var wasExpanded = card.classList.contains("is-expanded");
-
-          // Collapse all (accordion)
-          allCards.forEach(function (c) {
-            c.classList.remove("is-expanded");
-          });
-
-          // Toggle current
-          if (!wasExpanded) {
-            card.classList.add("is-expanded");
-          }
+        // Click handler - only toggle this card
+        header.addEventListener("click", function (e) {
+          e.stopPropagation();
+          card.classList.toggle("is-expanded");
         });
       });
     }
