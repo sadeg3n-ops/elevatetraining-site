@@ -14,7 +14,7 @@
         "Técnica cuidada",
         "Mejoras funcionales"
       ],
-      image: "assets/classes/fuerza.jpg"
+      image: "/01_site/02_assets/04_media/classes/fuerza.jpg"
     },
     {
       title: "HIIT y Acondicionamiento",
@@ -29,7 +29,7 @@
         "Mejora cardiovascular",
         "Sesiones dinámicas"
       ],
-      image: "assets/classes/hiit.jpg"
+      image: "/01_site/02_assets/04_media/classes/hiit.jpg"
     },
     {
       title: "Pilates",
@@ -44,7 +44,7 @@
         "Fortalecimiento del core",
         "Prevención de lesiones"
       ],
-      image: "assets/classes/pilates.jpg"
+      image: "/01_site/02_assets/04_media/classes/pilates.jpg"
     },
     {
       title: "Entrenamiento Funcional",
@@ -59,7 +59,7 @@
         "Entrenamiento integral",
         "Transferencia a rutinas diarias"
       ],
-      image: "assets/classes/funcional.jpg"
+      image: "/01_site/02_assets/04_media/classes/funcional.jpg"
     }
   ];
 

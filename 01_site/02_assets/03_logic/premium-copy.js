@@ -231,6 +231,14 @@
     var primaryAction = actionRow ? actionRow.querySelector("button") : null;
     var secondaryAction = actionRow ? actionRow.querySelector('a[href="#classes"]') : null;
 
+    container.classList.add("premium-hero-shell");
+    if (actionRow) {
+      actionRow.classList.add("premium-hero-actions");
+    }
+    if (proofRow) {
+      proofRow.classList.add("premium-hero-proof-row");
+    }
+
     setHTML(heading, 'FUERTE HOY.<br><span class="text-primary">MÁS FUERTE</span> MAÑANA.');
     setText(
       body,

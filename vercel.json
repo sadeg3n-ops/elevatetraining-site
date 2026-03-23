@@ -6,7 +6,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/01_site/01_entry/index.html"
     }
   ]
 }

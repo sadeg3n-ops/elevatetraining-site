@@ -5,7 +5,7 @@ Exact static deployment of the Vercel site at `https://flexity-gym-landing.verce
 ## Structure
 
 - `index.html`: app entrypoint copied from the target deployment
-- `assets/`: bundled CSS and JavaScript copied from the target deployment
+- `01_site/02_assets/`: CSS, JavaScript y medios del sitio, agrupados por utilidad
 - `vercel.json`: static file handling plus SPA fallback to `index.html`
 
 ## Deploy

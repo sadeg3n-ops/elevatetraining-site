@@ -1,17 +1,17 @@
 (function () {
   var trainerPhotos = {
     "Marcus Johnson": {
-      src: "/assets/team-premium/marcus-johnson-portrait.jpg",
+      src: "/01_site/02_assets/04_media/team-premium/marcus-johnson-portrait.jpg",
       alt: "Marcus Johnson, especialista en CrossFit de Impulso Gym",
       position: "50% 18%"
     },
     "Sarah Williams": {
-      src: "/assets/team-premium/sarah-williams-portrait.jpg",
+      src: "/01_site/02_assets/04_media/team-premium/sarah-williams-portrait.jpg",
       alt: "Sarah Williams, especialista en Pilates y Yoga de Impulso Gym",
       position: "50% 20%"
     },
     "David Park": {
-      src: "/assets/team-premium/david-park-portrait.jpg",
+      src: "/01_site/02_assets/04_media/team-premium/david-park-portrait.jpg",
       alt: "David Park, especialista en fitness y musculación de Impulso Gym",
       position: "50% 18%"
     }
