@@ -3,7 +3,7 @@
   var classData = [
     {
       title: "Musculación y Fuerza",
-      shortLabel: "La base de un cuerpo fuerte y equilibrado 💪",
+      shortLabel: "La base de un cuerpo fuerte y equilibrado",
       badge: "FUERZA",
       stageKicker: "ACTIVIDAD",
       summary: "Entrena con peso libre, máquinas guiadas y una técnica cuidada al detalle para desarrollar fuerza real, aumentar masa muscular y ganar confianza en cada sesión.",
@@ -18,7 +18,7 @@
     },
     {
       title: "HIIT y Acondicionamiento",
-      shortLabel: "Más intensidad, mejores resultados en menos tiempo 🔥",
+      shortLabel: "Más intensidad, mejores resultados en menos tiempo",
       badge: "HIIT",
       stageKicker: "ACTIVIDAD",
       summary: "Sesiones dinámicas y exigentes diseñadas para quemar grasa, mejorar tu resistencia y aumentar tu energía diaria sin necesidad de largas horas de entrenamiento.",
@@ -33,7 +33,7 @@
     },
     {
       title: "Pilates",
-      shortLabel: "Control corporal desde el centro 🧘‍♂️",
+      shortLabel: "Control corporal desde el centro",
       badge: "PILATES",
       stageKicker: "ACTIVIDAD",
       summary: "Fortalece tu core, mejora tu postura y reduce el riesgo de lesiones con un trabajo preciso que conecta fuerza, movilidad y conciencia corporal.",
@@ -48,7 +48,7 @@
     },
     {
       title: "Entrenamiento Funcional",
-      shortLabel: "Entrena para rendir mejor en tu vida diaria ⚡",
+      shortLabel: "Entrena para rendir mejor en tu vida diaria",
       badge: "FUNCIONAL",
       stageKicker: "ACTIVIDAD",
       summary: "Movimientos naturales que mejoran tu agilidad, coordinación y resistencia global para que tu cuerpo funcione mejor dentro y fuera del gimnasio.",
@@ -118,6 +118,44 @@
     ].join("");
 
     // No specific logic needed after rendering the grid
+
+    // Mobile: add toggle chevrons and expand/collapse
+    if (window.innerWidth < 768) {
+      var allCards = document.querySelectorAll("#classes .premium-class-card");
+      allCards.forEach(function (card) {
+        var header = card.querySelector(".premium-class-card-header");
+        if (!header || header.querySelector(".card-toggle")) return;
+
+        // Wrap title + lead in a div so chevron stays to the right
+        var titleWrap = document.createElement("div");
+        titleWrap.style.flex = "1";
+        while (header.firstChild) {
+          titleWrap.appendChild(header.firstChild);
+        }
+        header.appendChild(titleWrap);
+
+        // Add chevron
+        var chevron = document.createElement("span");
+        chevron.className = "card-toggle";
+        chevron.setAttribute("aria-hidden", "true");
+        header.appendChild(chevron);
+
+        // Click handler
+        header.addEventListener("click", function () {
+          var wasExpanded = card.classList.contains("is-expanded");
+
+          // Collapse all (accordion)
+          allCards.forEach(function (c) {
+            c.classList.remove("is-expanded");
+          });
+
+          // Toggle current
+          if (!wasExpanded) {
+            card.classList.add("is-expanded");
+          }
+        });
+      });
+    }
   }
 
   function queueBuild() {

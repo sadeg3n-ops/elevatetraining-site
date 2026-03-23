@@ -812,10 +812,10 @@ a.btn-glow,
 #classes .premium-class-card-lead {
   font-family: "Montserrat", sans-serif;
   font-size: 0.95rem;
-  font-weight: 700;
-  color: hsl(var(--primary));
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.02em;
-  text-shadow: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
 #classes .premium-class-card-body {
@@ -1137,7 +1137,7 @@ footer h3 {
   /* ── Class cards: stack image + content vertically on mobile ── */
   #classes .premium-classes-grid {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 
   #classes .premium-class-card {
@@ -1165,45 +1165,119 @@ footer h3 {
 
   #classes .premium-class-card-content {
     position: static;
-    padding: 1.25rem 1.5rem 1.5rem;
+    padding: 1rem 1.25rem 1.15rem;
     color: hsl(var(--foreground));
     background: hsl(var(--card));
     border-radius: 0 0 1.5rem 1.5rem;
   }
 
+  /* Header acts as the tap target */
+  #classes .premium-class-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   #classes .premium-class-card-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: hsl(var(--foreground));
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
+    flex: 1;
   }
 
   #classes .premium-class-card-lead {
     color: hsl(var(--primary));
+    font-size: 0.82rem;
+    margin-top: 0.2rem;
   }
 
+  /* Toggle chevron */
+  #classes .premium-class-card-header .card-toggle {
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.75rem;
+    border-radius: 50%;
+    background: hsl(var(--secondary) / 0.6);
+    border: 1px solid hsl(var(--border) / 0.5);
+    transition: transform 0.35s ease, background 0.35s ease;
+  }
+
+  #classes .premium-class-card-header .card-toggle::after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid hsl(var(--foreground));
+    border-bottom: 2px solid hsl(var(--foreground));
+    transform: rotate(45deg);
+    margin-top: -2px;
+    transition: transform 0.35s ease;
+  }
+
+  #classes .premium-class-card.is-expanded .card-toggle {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  #classes .premium-class-card.is-expanded .card-toggle::after {
+    transform: rotate(-135deg);
+    margin-top: 3px;
+  }
+
+  /* Collapsible body: hidden by default */
   #classes .premium-class-card-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+    margin-top: 0;
+  }
+
+  #classes .premium-class-card-body > * {
+    overflow: hidden;
+  }
+
+  #classes .premium-class-card.is-expanded .premium-class-card-body {
+    grid-template-rows: 1fr;
     opacity: 1;
-    transform: none;
-    height: auto;
-    pointer-events: auto;
     margin-top: 0.75rem;
   }
 
   #classes .premium-class-card-body p {
     color: hsl(var(--muted-foreground));
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.55;
     margin-bottom: 0.65rem;
   }
 
   #classes .premium-class-card-points li {
     color: hsl(var(--foreground));
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
+  /* Footer: hidden by default */
   #classes .premium-class-card-footer {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+    margin-top: 0;
+  }
+
+  #classes .premium-class-card-footer > * {
+    overflow: hidden;
+  }
+
+  #classes .premium-class-card.is-expanded .premium-class-card-footer {
+    grid-template-rows: 1fr;
     opacity: 1;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   #classes .premium-class-card-cta {
