@@ -149,11 +149,11 @@
     }
   }
 
-  var classesBuilt = false;
+  var classesFullyBuilt = false;
   var classesObserver;
 
   function queueBuild() {
-    if (buildQueued || classesBuilt) {
+    if (buildQueued || classesFullyBuilt) {
       return;
     }
 
@@ -161,13 +161,15 @@
 
     window.requestAnimationFrame(function () {
       buildQueued = false;
+      if (classesFullyBuilt) return;
       buildPremiumClasses();
 
-      // Check if successfully built
+      // Once cards exist, lock it permanently
       if (document.querySelector("#classes .premium-class-card")) {
-        classesBuilt = true;
+        classesFullyBuilt = true;
         if (classesObserver) {
           classesObserver.disconnect();
+          classesObserver = null;
         }
       }
     });
@@ -180,6 +182,7 @@
   }
 
   classesObserver = new MutationObserver(function () {
+    if (classesFullyBuilt) return;
     queueBuild();
   });
   classesObserver.observe(document.documentElement, {
