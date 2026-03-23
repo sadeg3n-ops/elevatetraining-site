@@ -158,8 +158,11 @@
     }
   }
 
+  var classesBuilt = false;
+  var classesObserver;
+
   function queueBuild() {
-    if (buildQueued) {
+    if (buildQueued || classesBuilt) {
       return;
     }
 
@@ -168,6 +171,14 @@
     window.requestAnimationFrame(function () {
       buildQueued = false;
       buildPremiumClasses();
+
+      // Check if successfully built
+      if (document.querySelector("#classes .premium-class-card")) {
+        classesBuilt = true;
+        if (classesObserver) {
+          classesObserver.disconnect();
+        }
+      }
     });
   }
 
@@ -177,9 +188,10 @@
     queueBuild();
   }
 
-  new MutationObserver(function () {
+  classesObserver = new MutationObserver(function () {
     queueBuild();
-  }).observe(document.documentElement, {
+  });
+  classesObserver.observe(document.documentElement, {
     childList: true,
     subtree: true
   });
