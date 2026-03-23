@@ -1451,12 +1451,75 @@ footer .container:last-child {
     margin: 0.3rem 0.7rem;
   }
 
-  /* ── Testimonials tighter on mobile ── */
+  /* ── Testimonials: carousel hints on mobile ── */
   #testimonials .glass-card .italic {
     font-size: 0.92rem !important;
   }
 
   #testimonials .glass-card p:not(.italic) {
     font-size: 0.85rem !important;
+  }
+
+  /* Right-edge gradient fade to hint more cards */
+  #testimonials .flex.overflow-x-auto {
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    padding-bottom: 2.5rem;
+    scroll-padding-left: 1rem;
+  }
+
+  /* Scroll indicator dots container */
+  .testimonials-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+
+  .testimonials-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .testimonials-dots .dot.active {
+    width: 18px;
+    border-radius: 3px;
+    background: hsl(var(--primary));
+  }
+
+  /* "Desliza" swipe hint */
+  .testimonials-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .testimonials-swipe-hint.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .testimonials-swipe-hint .arrow {
+    display: inline-block;
+    animation: swipeArrow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes swipeArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
   }
 }
