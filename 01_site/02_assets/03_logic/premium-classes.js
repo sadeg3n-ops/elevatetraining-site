@@ -89,6 +89,7 @@
       '<div class="premium-classes-grid">',
       items.map(function (item, index) {
         if (isMobile) {
+          var panelId = "premium-class-panel-" + index;
           return [
             '<article class="premium-class-card">',
             '<div class="premium-class-card-visual">',
@@ -97,14 +98,14 @@
             '<span class="premium-class-card-badge">' + item.badge + "</span>",
             "</div>",
             '<div class="premium-class-card-content">',
-            '<details class="premium-class-details">',
-            '<summary class="premium-class-card-header">',
+            '<button type="button" class="premium-class-card-header" aria-expanded="false" aria-controls="' + panelId + '">',
             '<div class="premium-class-header-text">',
             "<h3>" + item.title + "</h3>",
             '<p class="premium-class-card-lead">' + item.shortLabel + "</p>",
             "</div>",
             '<span class="card-toggle" aria-hidden="true"></span>',
-            "</summary>",
+            "</button>",
+            '<div id="' + panelId + '" class="premium-class-card-panel">',
             '<div class="premium-class-card-body">',
             "<p>" + item.summary + "</p>",
             '<ul class="premium-class-card-points">',
@@ -116,7 +117,7 @@
             '<div class="premium-class-card-footer">',
             '<a class="premium-class-card-cta" href="#contact">Saber más</a>',
             "</div>",
-            "</details>",
+            "</div>",
             "</div>",
             "</article>"
           ].join("");
@@ -157,6 +158,26 @@
   var classesFullyBuilt = false;
   var classesObserver;
 
+  function setupMobileClassAccordion(section) {
+    if (!section || window.innerWidth >= 768) {
+      return;
+    }
+
+    Array.from(section.querySelectorAll(".premium-class-card")).forEach(function (card) {
+      var trigger = card.querySelector(".premium-class-card-header");
+      if (!trigger || trigger.dataset.bound === "true") {
+        return;
+      }
+
+      trigger.dataset.bound = "true";
+
+      trigger.addEventListener("click", function () {
+        var isExpanded = card.classList.toggle("is-expanded");
+        trigger.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+      });
+    });
+  }
+
   function queueBuild() {
     if (buildQueued || classesFullyBuilt) {
       return;
@@ -168,6 +189,7 @@
       buildQueued = false;
       if (classesFullyBuilt) return;
       buildPremiumClasses();
+      setupMobileClassAccordion(document.getElementById("classes"));
 
       // Once cards exist, lock it permanently
       if (document.querySelector("#classes .premium-class-card")) {
