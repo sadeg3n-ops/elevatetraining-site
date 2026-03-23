@@ -1496,6 +1496,10 @@ footer h3 {
     font-size: 0.85rem !important;
   }
 
+  #testimonials .glass-card .flex.gap-0\.5 {
+    justify-content: center;
+  }
+
   /* Right-edge gradient fade to hint more cards */
   #testimonials .flex.overflow-x-auto {
     position: relative;
