@@ -1250,7 +1250,10 @@ footer h3 {
 
   #classes .premium-class-card.is-expanded .premium-class-card-body {
     max-height: 500px;
+    height: auto;
     opacity: 1;
+    transform: none;
+    pointer-events: auto;
     margin-top: 0.75rem;
   }
 
@@ -1280,6 +1283,7 @@ footer h3 {
   #classes .premium-class-card.is-expanded .premium-class-card-footer {
     max-height: 100px;
     opacity: 1;
+    pointer-events: auto;
     margin-top: 0.75rem;
   }
 
