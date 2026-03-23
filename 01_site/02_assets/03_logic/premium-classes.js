@@ -3,61 +3,61 @@
   var classData = [
     {
       title: "Musculación y Fuerza",
-      shortLabel: "La base de todo buen entrenamiento",
+      shortLabel: "La base de un cuerpo fuerte y equilibrado 💪",
       badge: "FUERZA",
       stageKicker: "ACTIVIDAD",
-      summary: "Peso libre, máquinas guiadas y una técnica que cuida cada detalle. Gana fuerza, masa muscular y confíanza en cada sesión.",
+      summary: "Entrena con peso libre, máquinas guiadas y una técnica cuidada al detalle para desarrollar fuerza real, aumentar masa muscular y ganar confianza en cada sesión.",
       featuredTitle: "Hazte más fuerte.",
       featuredBody: "Aprende a entrenar con buena técnica y progresión real.",
       points: [
-        "Progresiones adaptadas a ti",
-        "Técnica supervisada",
-        "Resultados que se notan"
+        "Progresiones adaptadas a tu nivel y objetivos",
+        "Supervisión técnica constante",
+        "Resultados visibles desde las primeras semanas"
       ],
       image: "/01_site/02_assets/04_media/classes/fuerza.jpg"
     },
     {
       title: "HIIT y Acondicionamiento",
-      shortLabel: "Máxima intensidad, mínimo tiempo",
+      shortLabel: "Más intensidad, mejores resultados en menos tiempo 🔥",
       badge: "HIIT",
       stageKicker: "ACTIVIDAD",
-      summary: "Sesiones de alta intensidad pensadas para quemar grasa, mejorar tu resistencia y terminar cada día con más energía.",
+      summary: "Sesiones dinámicas y exigentes diseñadas para quemar grasa, mejorar tu resistencia y aumentar tu energía diaria sin necesidad de largas horas de entrenamiento.",
       featuredTitle: "Suda y progresa.",
       featuredBody: "Lleva tu resistencia un paso más allá en cada sesión.",
       points: [
-        "Quema calórica real",
-        "Mejor resistencia cardiovascular",
-        "Sesiones dinámicas y variadas"
+        "Alta quema calórica en sesiones cortas",
+        "Mejora rápida de la resistencia cardiovascular",
+        "Entrenamientos variados y motivadores"
       ],
       image: "/01_site/02_assets/04_media/classes/hiit.jpg"
     },
     {
       title: "Pilates",
-      shortLabel: "Postura, control y equilibrio",
+      shortLabel: "Control corporal desde el centro 🧘‍♂️",
       badge: "PILATES",
       stageKicker: "ACTIVIDAD",
-      summary: "Fortalece tu core, corrige tu postura y prevén lesiones con movimientos precisos y conscientes.",
+      summary: "Fortalece tu core, mejora tu postura y reduce el riesgo de lesiones con un trabajo preciso que conecta fuerza, movilidad y conciencia corporal.",
       featuredTitle: "Conecta cuerpo y mente.",
       featuredBody: "El equilibrio perfecto entre fuerza, control y bienestar.",
       points: [
-        "Mejora postural",
-        "Core más fuerte",
-        "Prevención de lesiones"
+        "Corrección postural progresiva",
+        "Core fuerte y estable",
+        "Prevención activa de lesiones"
       ],
       image: "/01_site/02_assets/04_media/classes/pilates.jpg"
     },
     {
       title: "Entrenamiento Funcional",
-      shortLabel: "Prepárate para el día a día",
+      shortLabel: "Entrena para rendir mejor en tu vida diaria ⚡",
       badge: "FUNCIONAL",
       stageKicker: "ACTIVIDAD",
-      summary: "Movimientos reales para mejorar tu agilidad, coordinación y resistencia. Entrena tu cuerpo para lo que de verdad importa.",
+      summary: "Movimientos naturales que mejoran tu agilidad, coordinación y resistencia global para que tu cuerpo funcione mejor dentro y fuera del gimnasio.",
       featuredTitle: "Listo para todo.",
       featuredBody: "Entrena para la vida real, no solo para el gimnasio.",
       points: [
-        "Más agilidad y coordinación",
-        "Trabajo integral del cuerpo",
-        "Aplicable a tu rutina diaria"
+        "Mayor agilidad y coordinación",
+        "Trabajo completo de todo el cuerpo",
+        "Transferencia directa a tu día a día"
       ],
       image: "/01_site/02_assets/04_media/classes/funcional.jpg"
     }

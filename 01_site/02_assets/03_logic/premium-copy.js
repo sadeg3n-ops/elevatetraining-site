@@ -241,7 +241,7 @@
     setHTML(heading, 'FUERTE HOY.<br><span class="text-primary">MÁS FUERTE</span> MAÑANA.');
     setText(
       body,
-      "Transforma tu cuerpo, entrena con propósito y descubre de lo que eres capaz con el equipo adecuado a tu lado."
+      "Transforma tu cuerpo, entrena con intención y descubre hasta dónde puedes llegar cuando tienes un equipo que te guía de verdad."
     );
     setText(primaryAction, "Escríbenos");
     setText(secondaryAction, "Ver clases");
@@ -258,7 +258,7 @@
 
     if (proofRow && proofRow.dataset.premiumProof !== "true") {
       proofRow.dataset.premiumProof = "true";
-      proofRow.innerHTML = '<span class="premium-social-proof"><span class="premium-social-stars">★★★★★</span><span class="premium-social-divider"></span><span class="premium-social-text"><strong>4.9 / 5</strong> — Más de 300 personas confían en nosotros</span></span>';
+      proofRow.innerHTML = '<span class="premium-social-proof"><span class="premium-social-stars">★★★★★</span><span class="premium-social-divider"></span><span class="premium-social-text"><strong>4.9 / 5</strong> — Más de 300 personas ya entrenan con nosotros</span></span>';
     } else if (proofRow) {
       var proofSpan = proofRow.querySelector(".premium-social-proof");
       if (proofSpan && !proofSpan.querySelector(".premium-social-stars")) {
@@ -278,27 +278,27 @@
     var cards = section.querySelectorAll(".glass-card");
     var cardContent = [
       {
-        title: "Entrenamiento a tu medida",
-        body: "Nada de rutinas genéricas. Tu programa se diseña en función de cómo es tu cuerpo, tu nivel y lo que quieres conseguir."
+        title: "Entrenamiento adaptado a ti",
+        body: "Nada de rutinas copiadas y pegadas. Diseñamos tu programa según tu cuerpo, tu nivel y tus objetivos."
       },
       {
-        title: "Comunidad que empuja",
-        body: "Aquí se entrena fuerte, pero el buen ambiente es lo que te hace volver. No estás solo: tienes un equipo detrás."
+        title: "Una comunidad que empuja contigo",
+        body: "Entrenamos en serio, pero el ambiente es lo que marca la diferencia. Aquí te sientes parte del equipo desde el primer día."
       },
       {
-        title: "Desde el primer día, acompañado",
-        body: "Nada de llegar y no saber qué hacer. Desde tu primera sesión, sabrás exactamente por dónde empezar y cómo avanzar."
+        title: "Sabes qué hacer desde la primera sesión",
+        body: "Llegas y entrenas con claridad. Te guiamos paso a paso para que avances con seguridad desde el inicio."
       },
       {
-        title: "Soporte continuo",
-        body: "¿Dudas con un ejercicio? ¿Quieres ajustar algo? Tienes contacto directo con nosotros para que nunca te quedes atascado."
+        title: "Acompañamiento real, no solo una inscripción",
+        body: "Si tienes dudas, ajustamos contigo. Si necesitas cambiar algo, lo revisamos. No te dejamos solo en ningún momento."
       }
     ];
 
-    setHTML(heading, '¿POR QUÉ <span class="text-primary">IMPULSO GYM</span><br>ES DIFERENTE?');
+    setHTML(heading, '¿POR QUÉ <span class="text-primary">IMPULSO GYM</span> ES DIFERENTE?');
     setText(
       intro,
-      "Porque aquí no vienes a ocupar una máquina, sino a conseguir resultados con un equipo que se lo toma en serio."
+      "Porque aquí no vienes solo a entrenar. Vienes a mejorar."
     );
 
     cards.forEach(function (card, index) {
@@ -328,7 +328,7 @@
     setHTML(heading, 'TU INVERSIÓN EN <span class="text-primary">SALUD</span>');
     setText(
       intro,
-      "Planes claros, sin letra pequeña, que se adaptan a tu ritmo y a tus objetivos."
+      "Planes claros, flexibles y sin sorpresas. Elige el nivel de acompañamiento que mejor encaje contigo y empieza a notar resultados desde el primer mes."
     );
 
     cards.forEach(function (card) {

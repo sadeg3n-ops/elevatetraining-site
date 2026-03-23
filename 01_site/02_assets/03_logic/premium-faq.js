@@ -2,28 +2,28 @@
   var buildQueued = false;
   var faqItems = [
     {
-      question: "¿Tengo poco tiempo, merece la pena?",
-      answer: "Sí. Cuando el tiempo va justo es cuando más sentido tiene entrenar bien. Organizamos sesiones de 30 a 60 minutos para que avances de verdad sin complicarte la agenda."
+      question: "No tengo tiempo para entrenar",
+      answer: "Precisamente por eso entrenamos contigo. Organizamos sesiones de 30 a 60 minutos para que avances de verdad sin que el gimnasio te complique la agenda."
     },
     {
-      question: "Nunca he ido a un gimnasio, ¿puedo empezar aquí?",
-      answer: "Claro. No esperamos que llegues en forma, estamos para ayudarte a construirla. Adaptamos todo a tu nivel para que empieces con seguridad."
+      question: "No estoy en forma todavía",
+      answer: "Perfecto. Nadie empieza estándolo. Adaptamos todo a tu nivel para que ganes confianza desde el primer día."
     },
     {
-      question: "¿Es asequible a largo plazo?",
-      answer: "Tenemos planes para distintos ritmos y presupuestos. La idea es que lo veas como una inversión en tu salud y energía, no como una cuota más."
+      question: "¿Es caro entrenar aquí?",
+      answer: "Tenemos diferentes opciones según tu ritmo y objetivos. Lo importante es que lo veas como una inversión en tu salud, tu energía y cómo te sientes cada día."
     },
     {
-      question: "Tengo una lesión, ¿puedo entrenar?",
-      answer: "En la mayoría de casos, sí. Ajustamos ejercicios, cargas y ritmo para que puedas mejorar sin empeorar molestias, siempre con progresión segura."
+      question: "Tengo molestias o alguna lesión",
+      answer: "En la mayoría de casos podemos trabajar sin problema. Ajustamos ejercicios, cargas y progresión para que mejores sin forzar."
     },
     {
-      question: "¿Cuándo empezaré a notar resultados?",
-      answer: "Depende de tu punto de partida y constancia, pero normalmente se notan cambios en energía y fuerza desde las primeras semanas."
+      question: "¿Cuándo empezaré a notar cambios?",
+      answer: "Depende de cada persona, pero normalmente las primeras semanas ya notas más energía, más fuerza y más seguridad entrenando."
     },
     {
-      question: "Me aburro fácil, ¿siempre es lo mismo?",
-      answer: "Para nada. Variamos ejercicios, formatos y objetivos para que cada semana sea diferente. Queremos que progreses y que te apetezca volver."
+      question: "¿Las sesiones se hacen repetitivas?",
+      answer: "Para nada. Cambiamos ejercicios, formatos y objetivos para que sigas progresando y, sobre todo, tengas ganas de volver."
     }
   ];
 
@@ -34,8 +34,8 @@
       '<div class="premium-faq-shell">',
       '<div class="premium-faq-intro reveal-copy">',
       '<span class="premium-faq-kicker">Preguntas frecuentes</span>',
-      '<h2 class="font-display">LO QUE TODOS<br>NOS <span class="text-primary">PREGUNTAN</span></h2>',
-      '<p>Estas son las dudas que más resolvemos antes de empezar.</p>',
+      '<h2 class="font-display">LO QUE MÁS NOS <span class="text-primary">PREGUNTAN</span></h2>',
+      '<p>Estas son las dudas más habituales antes de empezar.</p>',
       "</div>",
       '<div class="premium-faq-list">',
       faqItems.map(function (item, index) {
