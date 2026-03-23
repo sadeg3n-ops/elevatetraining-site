@@ -4,7 +4,7 @@
     {
       name: "Marcos Jurado",
       role: "Fuerza y Rendimiento",
-      description: "Potencia, técnica y resistencia para que rindas al máximo sin lesionarte.",
+      description: "Te enseñará a entrenar con técnica, potencia y sin lesionarte.",
       image: "/01_site/02_assets/04_media/team-premium/marcus-johnson-portrait.jpg",
       alt: "Marcos Jurado, especialista en fuerza y rendimiento en Impulso Gym",
       position: "50% 18%"
@@ -12,7 +12,7 @@
     {
       name: "Sara Villanueva",
       role: "Pilates y Yoga",
-      description: "Control, movilidad y equilibrio. Te enseñará a reconectar con tu cuerpo.",
+      description: "Control, movilidad y equilibrio. Vas a reconectar con tu cuerpo.",
       image: "/01_site/02_assets/04_media/team-premium/sarah-williams-portrait.jpg",
       alt: "Sara Villanueva, especialista en pilates y yoga en Impulso Gym",
       position: "50% 20%"
@@ -20,7 +20,7 @@
     {
       name: "David Pardo",
       role: "Fitness y Musculación",
-      description: "Constancia, motivación y progreso real. Si crees que no puedes más, él te demostrará que sí.",
+      description: "Constancia, motivación y progreso real. Siempre saca lo mejor de ti.",
       image: "/01_site/02_assets/04_media/team-premium/david-park-portrait.jpg",
       alt: "David Pardo, especialista en fitness y musculación en Impulso Gym",
       position: "50% 18%"

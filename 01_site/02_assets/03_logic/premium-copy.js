@@ -2,32 +2,32 @@
   var queued = false;
   var testimonials = [
     {
-      quote: '"Impulso Gym cambió mi mentalidad. Perdí 14 kg, pero lo más importante es la confianza que he ganado en mí misma."',
+      quote: '"Llevo unos meses y el cambio se nota: perdí 14 kg, pero sobre todo me siento mucho más segura."',
       name: "Jessica R.",
       meta: "Miembro desde 2023"
     },
     {
-      quote: '"Por fin un gimnasio donde los entrenadores te hacen caso. La mejor inversión que he hecho este año."',
+      quote: '"Por fin un sitio donde los entrenadores están pendientes de ti de verdad. La mejor decisión que he tomado este año."',
       name: "Miguel T.",
       meta: "Perdió 11 kg"
     },
     {
-      quote: '"Me encanta el ambiente que hay. Cero postureo, mucha ayuda. Es lo que me hace volver cada día."',
+      quote: '"Me encanta el ambiente: cero postureo y mucha ayuda. Es lo que me hace volver cada día."',
       name: "Paula S.",
       meta: "Miembro desde 2022"
     },
     {
-      quote: '"Horarios flexibles y material de primera. Los entrenadores adaptaron todo a una lesión antigua que tenía de rodilla."',
+      quote: '"Horarios flexibles y material de primera. Adaptaron todo a una lesión antigua que tengo de rodilla."',
       name: "Carlos M.",
       meta: "Miembro desde 2024"
     },
     {
-      quote: '"Las clases de HIIT son una locura, intensas y súper divertidas. Las recomiendo totalmente."',
+      quote: '"Las clases de HIIT son una pasada: intensas, divertidas y se pasa volando. Totalmente recomendable."',
       name: "Elena W.",
       meta: "Entrena 5 días/semana"
     },
     {
-      quote: '"Pasé de no saber coger una mancuerna a levantar peso con buena técnica. La atención aquí es de otro nivel."',
+      quote: '"Empecé sin saber coger una mancuerna y ahora levanto peso con buena técnica. La atención aquí es otra cosa."',
       name: "Jaime K.",
       meta: "Miembro desde 2021"
     }
@@ -199,9 +199,8 @@
       if (btn.dataset.premiumFormBound) return;
       var text = btn.textContent.trim();
       if (
-        text === "Empieza ahora" ||
         text === "Empieza tu cambio" ||
-        text === "Reserva tu clase gratuita"
+        text === "Reservar mi clase gratis"
       ) {
         btn.dataset.premiumFormBound = "true";
         btn.addEventListener("click", function (e) {
@@ -242,10 +241,20 @@
     setHTML(heading, 'FUERTE HOY.<br><span class="text-primary">MÁS FUERTE</span> MAÑANA.');
     setText(
       body,
-      "Transforma tu cuerpo, eleva tu mente y desbloquea tu máximo potencial con entrenamiento de alto nivel."
+      "Transforma tu cuerpo, entrena con propósito y descubre de lo que eres capaz con el equipo adecuado a tu lado."
     );
-    setText(primaryAction, "Empieza ahora");
+    setText(primaryAction, "Escríbenos");
     setText(secondaryAction, "Ver clases");
+
+    // Make "Escríbenos" redirect to WhatsApp
+    if (primaryAction && !primaryAction.dataset.waLinked) {
+      primaryAction.dataset.waLinked = "true";
+      primaryAction.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open("https://wa.me/34600000000", "_blank");
+      }, true);
+    }
 
     if (proofRow && proofRow.dataset.premiumProof !== "true") {
       proofRow.dataset.premiumProof = "true";
@@ -269,27 +278,27 @@
     var cards = section.querySelectorAll(".glass-card");
     var cardContent = [
       {
-        title: "Entrenamiento inteligente",
-        body: "Cero rutinas genéricas. Nuestros profesionales diseñan programas basados en tu cuerpo, tu nivel y tus objetivos reales."
+        title: "Entrenamiento a tu medida",
+        body: "Nada de rutinas genéricas. Tu programa se diseña en función de cómo es tu cuerpo, tu nivel y lo que quieres conseguir."
       },
       {
-        title: "Comunidad y motivación",
-        body: "Aquí se entrena duro, pero el ambiente es tu mejor pre-entreno. Te ayudamos a mantener el foco cuando la motivación falle."
+        title: "Comunidad que empuja",
+        body: "Aquí se entrena fuerte, pero el buen ambiente es lo que te hace volver. No estás solo: tienes un equipo detrás."
       },
       {
-        title: "Acompañamiento desde el minuto uno",
-        body: "Se acabó eso de sentirte perdido en la sala. Desde el primer día, te sentirás como en casa y sabrás exactamente qué hacer."
+        title: "Desde el primer día, acompañado",
+        body: "Nada de llegar y no saber qué hacer. Desde tu primera sesión, sabrás exactamente por dónde empezar y cómo avanzar."
       },
       {
-        title: "Soporte total 24/7",
-        body: "¿Dudas con un ejercicio? ¿Preguntas sobre nutrición? Tienes línea directa con nosotros para que nunca frenes tu progreso."
+        title: "Soporte continuo",
+        body: "¿Dudas con un ejercicio? ¿Quieres ajustar algo? Tienes contacto directo con nosotros para que nunca te quedes atascado."
       }
     ];
 
-    setHTML(heading, '¿POR QUÉ IMPULSO GYM<br><span class="text-primary">NO ES UN GIMNASIO MÁS?</span>');
+    setHTML(heading, '¿POR QUÉ <span class="text-primary">IMPULSO GYM</span><br>ES DIFERENTE?');
     setText(
       intro,
-      "Porque aquí no vienes a alquilar máquinas, vienes a conseguir resultados. Todo lo que necesitas, con un equipo que se toma tu progreso como algo personal."
+      "Porque aquí no vienes a ocupar una máquina, sino a conseguir resultados con un equipo que se lo toma en serio."
     );
 
     cards.forEach(function (card, index) {
@@ -319,7 +328,7 @@
     setHTML(heading, 'TU INVERSIÓN EN <span class="text-primary">SALUD</span>');
     setText(
       intro,
-      "Planes sin letra pequeña y flexibles que se adaptan a tu ritmo de vida y a tu ambición."
+      "Planes claros, sin letra pequeña, que se adaptan a tu ritmo y a tus objetivos."
     );
 
     cards.forEach(function (card) {
@@ -342,8 +351,8 @@
     var intro = section.querySelector(".container > p");
     var cards = section.querySelectorAll(".glass-card");
 
-    setHTML(heading, 'LO QUE DICEN NUESTROS <span class="text-primary">CLIENTES</span>');
-    setText(intro, "No nos creas a nosotros. Créeles a ellos.");
+    setHTML(heading, 'LO QUE DICEN QUIENES <span class="text-primary">YA ENTRENAN</span> AQUÍ');
+    setText(intro, "No nos creas a nosotros. Escúchales a ellos.");
 
     cards.forEach(function (card, index) {
       var data = testimonials[index];
@@ -371,20 +380,20 @@
     var paragraphs = section.querySelectorAll("p");
     var button = section.querySelector("button");
 
-    setHTML(heading, "ES HORA DE DAR EL PRIMER PASO.");
+    setHTML(heading, "DA EL PRIMER PASO.");
 
     if (paragraphs[0]) {
       setText(
         paragraphs[0],
-        "Sabemos que leerlo no es lo mismo que vivirlo. Por eso, tu primera sesión corre de nuestra cuenta. Ven, conoce a los entrenadores, prueba el ambiente y decide si somos lo que estás buscando."
+        "Sabemos que leerlo no es lo mismo que vivirlo. Tu primera sesión va por nuestra cuenta: ven, conoce al equipo y decide si esto es lo que buscas."
       );
     }
 
     if (paragraphs[1]) {
-      setText(paragraphs[1], "Sin compromisos. Sin pedirte la tarjeta.");
+      setText(paragraphs[1], "Sin compromiso. Sin pedirte la tarjeta.");
     }
 
-    setText(button, "Quiero reservar mi clase gratuita");
+    setText(button, "Reservar mi clase gratis");
 
     // Immersive scroll effect logic
     if (!section.dataset.immersiveBound) {
