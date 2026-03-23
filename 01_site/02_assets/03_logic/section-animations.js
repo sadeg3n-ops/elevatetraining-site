@@ -188,6 +188,8 @@
   function setupAnimations() {
     document.body.classList.add("js-animations-ready");
 
+    var isMobile = window.innerWidth < 768;
+
     revealObserver = new IntersectionObserver(
       function (entries, observer) {
         entries.forEach(function (entry) {
@@ -200,8 +202,8 @@
         });
       },
       {
-        threshold: 0.18,
-        rootMargin: "0px 0px -8% 0px"
+        threshold: isMobile ? 0.02 : 0.18,
+        rootMargin: isMobile ? "0px 0px 0px 0px" : "0px 0px -8% 0px"
       }
     );
 
@@ -218,8 +220,8 @@
         });
       },
       {
-        threshold: 0.45,
-        rootMargin: "-10% 0px -30% 0px"
+        threshold: isMobile ? 0.1 : 0.45,
+        rootMargin: isMobile ? "0px 0px -10% 0px" : "-10% 0px -30% 0px"
       }
     );
 
