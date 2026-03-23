@@ -159,6 +159,24 @@
       registerTarget(item);
     });
 
+    // Animate contact CTA button and social links
+    if (section.id === "contact") {
+      var ctaButton = section.querySelector("button");
+      var socialRow = section.querySelector(".flex.items-center.justify-center.gap-8");
+      if (ctaButton && !observedTargets.has(ctaButton)) {
+        ctaButton.classList.add("reveal-item");
+        ctaButton.style.setProperty("--stagger-index", "2");
+        applyVariant(ctaButton, "reveal-variant-pop");
+        registerTarget(ctaButton);
+      }
+      if (socialRow && !observedTargets.has(socialRow)) {
+        socialRow.classList.add("reveal-item");
+        socialRow.style.setProperty("--stagger-index", "3");
+        applyVariant(socialRow, "reveal-variant-soft");
+        registerTarget(socialRow);
+      }
+    }
+
     registerSection(section);
   }
 
