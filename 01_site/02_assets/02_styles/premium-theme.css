@@ -1300,38 +1300,147 @@ footer .container:last-child {
     line-height: 1.35;
   }
 
+  /* ── All sections: center text on mobile ── */
+  #about .container,
+  #classes .container,
+  #pricing .container,
+  #trainers .container,
+  #testimonials .container,
+  #faq .container,
+  #contact .container {
+    text-align: center;
+  }
+
+  h2.font-display {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem) !important;
+    line-height: 1.08;
+    text-align: center;
+  }
+
+  #about .container > p,
+  #classes .container > p,
+  #pricing .container > p,
+  #trainers .container > p,
+  #testimonials .container > p {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ── FAQ section: compact & polished on mobile ── */
+  #faq .premium-faq-shell {
+    gap: 2rem;
+  }
+
+  #faq .premium-faq-intro {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  #faq .premium-faq-intro h2 {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem) !important;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  #faq .premium-faq-kicker {
+    font-size: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  #faq .premium-faq-intro p {
+    max-width: 100%;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-top: 0.85rem;
+    text-align: center;
+  }
+
+  #faq .premium-faq-link {
+    margin-top: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+    min-height: 2.5rem;
+  }
+
+  #faq .premium-faq-item {
+    border-radius: 1rem;
+  }
+
+  #faq .premium-faq-trigger {
+    gap: 0.65rem;
+    padding: 0.95rem 0.85rem;
+  }
+
+  #faq .premium-faq-number {
+    font-size: 0.7rem;
+  }
+
+  #faq .premium-faq-question {
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+
+  #faq .premium-faq-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    flex-shrink: 0;
+  }
+
+  #faq .premium-faq-icon::before,
+  #faq .premium-faq-icon::after {
+    width: 0.65rem;
+  }
+
+  #faq .premium-faq-answer-inner p {
+    margin: 0 0.85rem 1rem;
+    padding-top: 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  #faq .premium-faq-list {
+    gap: 0.65rem;
+  }
+
   /* ── Contact section: compact & centered on mobile ── */
   #contact .relative.z-10.container {
     max-width: 100% !important;
-    padding: 2.5rem 1.5rem;
+    padding: 2.25rem 1.25rem;
     border-radius: 1.25rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
   }
 
   #contact h2 {
-    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem) !important;
     line-height: 1.1;
     text-align: center;
   }
 
   #contact p {
-    font-size: 0.95rem !important;
-    line-height: 1.55;
+    font-size: 0.9rem !important;
+    line-height: 1.5;
     text-align: center;
   }
 
   #contact button {
     width: 100%;
-    max-width: 20rem;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    padding: 1rem 1.25rem !important;
-    font-size: 0.92rem !important;
+    padding: 0.95rem 1.25rem !important;
+    font-size: 0.85rem !important;
     white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
     line-height: 1.3;
     text-align: center;
+    border-radius: 1rem !important;
+    min-width: 0 !important;
   }
 
   #contact .flex.items-center.justify-center.gap-8.flex-wrap {
@@ -1340,6 +1449,15 @@ footer .container:last-child {
 
   #contact .flex.items-center.justify-center.gap-8.flex-wrap a {
     transform: scale(1.1);
-    margin: 0.35rem 0.8rem;
+    margin: 0.3rem 0.7rem;
+  }
+
+  /* ── Testimonials tighter on mobile ── */
+  #testimonials .glass-card .italic {
+    font-size: 0.92rem !important;
+  }
+
+  #testimonials .glass-card p:not(.italic) {
+    font-size: 0.85rem !important;
   }
 }
