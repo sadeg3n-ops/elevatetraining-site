@@ -4,3 +4,13 @@
 .vercel-global
 node_modules
 __pycache__
+
+# Backup export generado automáticamente
+.env
+.env.*
+!.env.example
+backup-export/generated/
+backup-export/*.zip
+backup-export/*.tar.gz
+backup-export/*.bundle
+backup-export/*.sha256
